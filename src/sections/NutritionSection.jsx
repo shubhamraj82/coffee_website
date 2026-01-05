@@ -1,17 +1,12 @@
-import React from 'react'
 import { useMediaQuery } from "react-responsive";
 import { nutrientLists } from "../constants";
 import { useEffect, useState } from "react";
 import { useGSAP } from "@gsap/react";
-import { SplitText, ScrollTrigger } from "gsap/all";
+import { SplitText } from "gsap/all";
 import gsap from "gsap";
 
-// Register ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
-
-export const NutritionSection = () => {
-
-      const isMobile = useMediaQuery({
+const NutritionSection = () => {
+  const isMobile = useMediaQuery({
     query: "(max-width: 768px)",
   });
 
@@ -26,15 +21,13 @@ export const NutritionSection = () => {
   }, [isMobile]);
 
   useGSAP(() => {
-    // Wait for fonts to load before creating SplitText
-    document.fonts.ready.then(() => {
-      const titleSplit = SplitText.create(".nutrition-title", {
-        type: "chars",
-      });
-      const paragraphSplit = SplitText.create(".nutrition-section p", {
-        type: "words, lines",
-        linesClass: "paragraph-line",
-      });
+    const titleSplit = SplitText.create(".nutrition-title", {
+      type: "chars",
+    });
+    const paragraphSplit = SplitText.create(".nutrition-section p", {
+      type: "words, lines",
+      linesClass: "paragraph-line",
+    });
 
     const contentTl = gsap.timeline({
       scrollTrigger: {
@@ -69,10 +62,10 @@ export const NutritionSection = () => {
       clipPath: "polygon(100% 0, 0 0, 0 100%, 100% 100%)",
       ease: "power1.inOut",
     });
-    });
   });
+
   return (
-     <section className="nutrition-section">
+    <section className="nutrition-section">
       <img
         src="/images/slider-dip.png"
         alt=""

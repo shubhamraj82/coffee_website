@@ -5,7 +5,7 @@ import gsap from 'gsap';
 import MessageSection from './sections/MessageSection';
 import FlavourSection from './sections/FlavourSection';
 import { useGSAP } from '@gsap/react';
-import { NutritionSection } from './sections/NutritionSection';
+import NutritionSection from './sections/NutritionSection';
 
 
 gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
